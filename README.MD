@@ -26,27 +26,31 @@ El **frontend** está implementado en **HTML, CSS y JavaScript**, utilizando `se
 ## 🏗️ Arquitectura del Proyecto
 
 Estructura modularizada que separa la **lógica de presentación (Frontend)** de la **lógica del servidor (Backend)**:
+
+```bash
 Pagina web/
+│
 ├── Backend/
-│ ├── db_config.js # Configuración de conexión a MySQL
-│ ├── main.js # Servidor principal (Express) y rutas API
-│ ├── package.json # Dependencias y metadatos del servidor
-│ ├── Tabla.sql # Script SQL para crear la tabla de usuarios
-│ ├── node_modules/ # Dependencias instaladas (IGNORADO)
-│ └── .env # Variables de entorno (IGNORADO)
+│   ├── db_config.js           # Configuración de conexión a MySQL
+│   ├── main.js                # Servidor principal (Express) y rutas API
+│   ├── package.json           # Dependencias y metadatos del servidor
+│   ├── Tabla.sql              # Script SQL para crear la tabla de usuarios
+│   ├── node_modules/          # Dependencias instaladas (IGNORADO)
+│   └── .env                   # Variables de entorno (IGNORADO)
 │
 ├── Frontend/
-│ ├── js/
-│ │ ├── login.js # Lógica de inicio de sesión
-│ │ ├── perfil.js # Lógica de actualización de perfil
-│ │ └── registro.js # Lógica de registro
-│ ├── login.html # Interfaz de login
-│ ├── Pagina_de_perfil.html # Interfaz de perfil
-│ ├── Pagina_trabajo.html # Página principal/dashboard
-│ └── registro.html # Interfaz de registro
+│   ├── js/
+│   │   ├── login.js           # Lógica de inicio de sesión
+│   │   ├── perfil.js          # Lógica de actualización de perfil
+│   │   └── registro.js        # Lógica de registro
+│   ├── login.html             # Interfaz de login
+│   ├── Pagina_de_perfil.html  # Interfaz de perfil
+│   ├── Pagina_trabajo.html    # Página principal/dashboard
+│   └── registro.html          # Interfaz de registro
 │
-├── .gitignore # Reglas de exclusión de Git
-└── README.md # Documentación del proyecto
+├── .gitignore                 # Reglas de exclusión de Git
+└── README.md                  # Documentación del proyecto
+
 
 ---
 
