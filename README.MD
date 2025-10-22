@@ -75,7 +75,3 @@ Las dependencias se instalan automáticamente con `npm install` dentro del direc
 
 ### 🔧 Backend (Servidor API)
 
-1. **Instalar dependencias:**
-   ```bash
-   cd Backend
-   npm install
