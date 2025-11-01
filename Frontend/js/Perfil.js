@@ -28,11 +28,18 @@ updateForm.addEventListener('submit', async (e) => {
         
         if (response.ok) {
 
-            sessionStorage.setItem('username', data.username);
-            sessionStorage.setItem('userEmail', data.newEmail);
+            // Actualizar datos de sesión
+            localStorage.setItem('userEmail', newEmail);
+            sessionStorage.setItem('username', newUsername);
+            sessionStorage.setItem('isLoggedIn', 'true');
+            
             mensajeUpdate.style.color = 'green';
             mensajeUpdate.textContent = `✅ ¡Cuenta actualizada!`;
-            window.location.href = 'Pagina_trabajo.html'; 
+            
+            // Esperar a que el mensaje se muestre antes de redireccionar
+            setTimeout(() => {
+                window.location.href = 'Pagina_trabajo.html';
+            }, 1000); 
         } else {
             mensajeUpdate.style.color = 'red';
             mensajeUpdate.textContent = `Error al actualizar: ${data.message}`;

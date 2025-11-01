@@ -1,6 +1,7 @@
 const URL_BASE = 'http://localhost:3000'; 
-const form = document.getElementById('loginFormulario'); 
+const form = document.getElementById('loginFormulario');
 const mensaje = document.getElementById('mensajeLogin'); 
+
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault(); 
@@ -22,19 +23,21 @@ form.addEventListener('submit', async (e) => {
 
         const data = await response.json(); 
         
-        if (response.ok) { 
-            mensaje.style.color = 'green';
-            mensaje.textContent = `🥳 ¡Bienvenido, ${data.username}!`;
-            form.reset(); 
-            
-            
-            localStorage.setItem('userEmail', email); 
-            
-            
-            setTimeout(() => {
-                window.location.href = 'Pagina_de_perfil.html'; 
-            }, 1000); 
+         if (response.ok) { 
+            const usernameToStore = data.username || email.split('@')[0];
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('username', usernameToStore);
+            localStorage.setItem('isLoggedIn', 'true');
 
+ 
+            mensaje.style.color = 'green';
+            mensaje.textContent = `🥳 ¡Bienvenido, ${data.username || 'usuario'}! Redirigiendo...`; // Mejorar el mensaje
+            form.reset(); 
+
+             setTimeout(()  => {
+
+             window.location.href = 'Pagina_trabajo.html';}, 1000);  
+        
         } else { 
             mensaje.style.color = 'red';
             mensaje.textContent = `❌ ${data.message || 'Credenciales inválidas.'}`;
@@ -46,3 +49,4 @@ form.addEventListener('submit', async (e) => {
         console.error("Error de Fetch:", error);
     }
 });
+
